@@ -36,4 +36,4 @@ settings.gradle
 /gradle
 gradlew
 
-./target/
+target/
