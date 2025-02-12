@@ -1,0 +1,41 @@
+syntax = "proto2";
+
+package com.example.sixth;
+
+option optimize_for = SPEED;
+option java_package = "com.example.sixth";
+option java_outer_classname = "MultiMessage";
+
+message Message {
+
+  enum MessageType {
+    Person = 1;
+    Dog = 2;
+    Cat = 3;
+  }
+
+  required MessageType message_type = 1;
+
+  // oneof关键字：message_body字段只能是其中的一个
+  oneof message_body {
+      Person person = 2;
+      Dog dog = 3;
+      Cat cat = 4;
+  }
+}
+
+message Person {
+  required string name = 1;
+  optional int32 age = 2;
+  optional string address = 3;
+}
+
+message Dog {
+  required string name = 1;
+  optional int32 age = 2;
+}
+
+message Cat {
+  required string name = 1;
+  optional string city = 2;
+}
