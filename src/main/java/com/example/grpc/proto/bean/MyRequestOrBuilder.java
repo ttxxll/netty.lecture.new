@@ -2,7 +2,7 @@
 // source: Student.proto
 
 // Protobuf Java Version: 3.25.5
-package com.example.grpc.proto;
+package com.example.grpc.proto.bean;
 
 public interface MyRequestOrBuilder extends
     // @@protoc_insertion_point(interface_extends:com.example.grpc.proto.MyRequest)
@@ -12,7 +12,7 @@ public interface MyRequestOrBuilder extends
    * <code>string username = 1;</code>
    * @return The username.
    */
-  String getUsername();
+  java.lang.String getUsername();
   /**
    * <code>string username = 1;</code>
    * @return The bytes for username.

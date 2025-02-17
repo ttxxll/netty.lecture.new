@@ -1,14 +1,14 @@
 syntax = "proto3";
 
+//  Protobuf 消息、服务等定义的逻辑命名空间，这个命名空间主要用于在 Protobuf 内部避免命名冲突
 package com.example.grpc.proto;
 
-option java_package = "com.example.grpc.proto";
-option java_outer_classname = "StudentProto";
+// 指定了生成的类所在的包名，.proto 文件编译成Java代码时，生成的类会被放置在option java_package指定的包中
+option java_package = "com.example.grpc.proto.bean";
+// 指定外部类名，否则以文件名生成外部类名
+option java_outer_classname = "Student";
+// 每个消息生成一个独立的类，否则作为内部类放到外部类中
 option java_multiple_files = true;
-
-service StudentService {
-  rpc GetRealNameByUsername(MyRequest) returns (MyResponse) {}
-}
 
 message MyRequest {
   string username = 1;
@@ -16,4 +16,9 @@ message MyRequest {
 
 message MyResponse {
   string realname = 2;
+}
+
+// 方法名不能和类名一样
+service StudentService {
+  rpc GetRealNameByUsername(com.example.grpc.proto.MyRequest) returns (com.example.grpc.proto.MyResponse) {}
 }

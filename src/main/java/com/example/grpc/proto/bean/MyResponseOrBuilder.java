@@ -2,7 +2,7 @@
 // source: Student.proto
 
 // Protobuf Java Version: 3.25.5
-package com.example.grpc.proto;
+package com.example.grpc.proto.bean;
 
 public interface MyResponseOrBuilder extends
     // @@protoc_insertion_point(interface_extends:com.example.grpc.proto.MyResponse)
@@ -12,7 +12,7 @@ public interface MyResponseOrBuilder extends
    * <code>string realname = 2;</code>
    * @return The realname.
    */
-  String getRealname();
+  java.lang.String getRealname();
   /**
    * <code>string realname = 2;</code>
    * @return The bytes for realname.
