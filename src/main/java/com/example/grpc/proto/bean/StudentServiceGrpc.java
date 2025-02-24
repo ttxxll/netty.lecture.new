@@ -1,8 +1,11 @@
-package com.example.grpc.proto;
+package com.example.grpc.proto.bean;
 
 import static io.grpc.MethodDescriptor.generateFullMethodName;
 
 /**
+ * <pre>
+ * 方法名不能和类名一样
+ * </pre>
  */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.70.0)",
@@ -12,32 +15,32 @@ public final class StudentServiceGrpc {
 
   private StudentServiceGrpc() {}
 
-  public static final String SERVICE_NAME = "com.example.grpc.proto.StudentService";
+  public static final java.lang.String SERVICE_NAME = "com.example.grpc.proto.StudentService";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<MyRequest,
-      MyResponse> getGetRealNameByUsernameMethod;
+  private static volatile io.grpc.MethodDescriptor<com.example.grpc.proto.bean.MyRequest,
+      com.example.grpc.proto.bean.MyResponse> getGetRealNameByUsernameMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "GetRealNameByUsername",
-      requestType = MyRequest.class,
-      responseType = MyResponse.class,
+      requestType = com.example.grpc.proto.bean.MyRequest.class,
+      responseType = com.example.grpc.proto.bean.MyResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<MyRequest,
-      MyResponse> getGetRealNameByUsernameMethod() {
-    io.grpc.MethodDescriptor<MyRequest, MyResponse> getGetRealNameByUsernameMethod;
+  public static io.grpc.MethodDescriptor<com.example.grpc.proto.bean.MyRequest,
+      com.example.grpc.proto.bean.MyResponse> getGetRealNameByUsernameMethod() {
+    io.grpc.MethodDescriptor<com.example.grpc.proto.bean.MyRequest, com.example.grpc.proto.bean.MyResponse> getGetRealNameByUsernameMethod;
     if ((getGetRealNameByUsernameMethod = StudentServiceGrpc.getGetRealNameByUsernameMethod) == null) {
       synchronized (StudentServiceGrpc.class) {
         if ((getGetRealNameByUsernameMethod = StudentServiceGrpc.getGetRealNameByUsernameMethod) == null) {
           StudentServiceGrpc.getGetRealNameByUsernameMethod = getGetRealNameByUsernameMethod =
-              io.grpc.MethodDescriptor.<MyRequest, MyResponse>newBuilder()
+              io.grpc.MethodDescriptor.<com.example.grpc.proto.bean.MyRequest, com.example.grpc.proto.bean.MyResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetRealNameByUsername"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  MyRequest.getDefaultInstance()))
+                  com.example.grpc.proto.bean.MyRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  MyResponse.getDefaultInstance()))
+                  com.example.grpc.proto.bean.MyResponse.getDefaultInstance()))
               .setSchemaDescriptor(new StudentServiceMethodDescriptorSupplier("GetRealNameByUsername"))
               .build();
         }
@@ -52,7 +55,7 @@ public final class StudentServiceGrpc {
   public static StudentServiceStub newStub(io.grpc.Channel channel) {
     io.grpc.stub.AbstractStub.StubFactory<StudentServiceStub> factory =
       new io.grpc.stub.AbstractStub.StubFactory<StudentServiceStub>() {
-        @Override
+        @java.lang.Override
         public StudentServiceStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
           return new StudentServiceStub(channel, callOptions);
         }
@@ -67,7 +70,7 @@ public final class StudentServiceGrpc {
       io.grpc.Channel channel) {
     io.grpc.stub.AbstractStub.StubFactory<StudentServiceBlockingV2Stub> factory =
       new io.grpc.stub.AbstractStub.StubFactory<StudentServiceBlockingV2Stub>() {
-        @Override
+        @java.lang.Override
         public StudentServiceBlockingV2Stub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
           return new StudentServiceBlockingV2Stub(channel, callOptions);
         }
@@ -82,7 +85,7 @@ public final class StudentServiceGrpc {
       io.grpc.Channel channel) {
     io.grpc.stub.AbstractStub.StubFactory<StudentServiceBlockingStub> factory =
       new io.grpc.stub.AbstractStub.StubFactory<StudentServiceBlockingStub>() {
-        @Override
+        @java.lang.Override
         public StudentServiceBlockingStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
           return new StudentServiceBlockingStub(channel, callOptions);
         }
@@ -97,7 +100,7 @@ public final class StudentServiceGrpc {
       io.grpc.Channel channel) {
     io.grpc.stub.AbstractStub.StubFactory<StudentServiceFutureStub> factory =
       new io.grpc.stub.AbstractStub.StubFactory<StudentServiceFutureStub>() {
-        @Override
+        @java.lang.Override
         public StudentServiceFutureStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
           return new StudentServiceFutureStub(channel, callOptions);
         }
@@ -106,30 +109,39 @@ public final class StudentServiceGrpc {
   }
 
   /**
+   * <pre>
+   * 方法名不能和类名一样
+   * </pre>
    */
   public interface AsyncService {
 
     /**
      */
-    default void getRealNameByUsername(MyRequest request,
-                                       io.grpc.stub.StreamObserver<MyResponse> responseObserver) {
+    default void getRealNameByUsername(com.example.grpc.proto.bean.MyRequest request,
+        io.grpc.stub.StreamObserver<com.example.grpc.proto.bean.MyResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetRealNameByUsernameMethod(), responseObserver);
     }
   }
 
   /**
    * Base class for the server implementation of the service StudentService.
+   * <pre>
+   * 方法名不能和类名一样
+   * </pre>
    */
   public static abstract class StudentServiceImplBase
       implements io.grpc.BindableService, AsyncService {
 
-    @Override public final io.grpc.ServerServiceDefinition bindService() {
+    @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return StudentServiceGrpc.bindService(this);
     }
   }
 
   /**
    * A stub to allow clients to do asynchronous rpc calls to service StudentService.
+   * <pre>
+   * 方法名不能和类名一样
+   * </pre>
    */
   public static final class StudentServiceStub
       extends io.grpc.stub.AbstractAsyncStub<StudentServiceStub> {
@@ -138,7 +150,7 @@ public final class StudentServiceGrpc {
       super(channel, callOptions);
     }
 
-    @Override
+    @java.lang.Override
     protected StudentServiceStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       return new StudentServiceStub(channel, callOptions);
@@ -146,8 +158,8 @@ public final class StudentServiceGrpc {
 
     /**
      */
-    public void getRealNameByUsername(MyRequest request,
-                                      io.grpc.stub.StreamObserver<MyResponse> responseObserver) {
+    public void getRealNameByUsername(com.example.grpc.proto.bean.MyRequest request,
+        io.grpc.stub.StreamObserver<com.example.grpc.proto.bean.MyResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetRealNameByUsernameMethod(), getCallOptions()), request, responseObserver);
     }
@@ -155,6 +167,9 @@ public final class StudentServiceGrpc {
 
   /**
    * A stub to allow clients to do synchronous rpc calls to service StudentService.
+   * <pre>
+   * 方法名不能和类名一样
+   * </pre>
    */
   public static final class StudentServiceBlockingV2Stub
       extends io.grpc.stub.AbstractBlockingStub<StudentServiceBlockingV2Stub> {
@@ -163,7 +178,7 @@ public final class StudentServiceGrpc {
       super(channel, callOptions);
     }
 
-    @Override
+    @java.lang.Override
     protected StudentServiceBlockingV2Stub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       return new StudentServiceBlockingV2Stub(channel, callOptions);
@@ -171,7 +186,7 @@ public final class StudentServiceGrpc {
 
     /**
      */
-    public MyResponse getRealNameByUsername(MyRequest request) {
+    public com.example.grpc.proto.bean.MyResponse getRealNameByUsername(com.example.grpc.proto.bean.MyRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetRealNameByUsernameMethod(), getCallOptions(), request);
     }
@@ -179,6 +194,9 @@ public final class StudentServiceGrpc {
 
   /**
    * A stub to allow clients to do limited synchronous rpc calls to service StudentService.
+   * <pre>
+   * 方法名不能和类名一样
+   * </pre>
    */
   public static final class StudentServiceBlockingStub
       extends io.grpc.stub.AbstractBlockingStub<StudentServiceBlockingStub> {
@@ -187,7 +205,7 @@ public final class StudentServiceGrpc {
       super(channel, callOptions);
     }
 
-    @Override
+    @java.lang.Override
     protected StudentServiceBlockingStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       return new StudentServiceBlockingStub(channel, callOptions);
@@ -195,7 +213,7 @@ public final class StudentServiceGrpc {
 
     /**
      */
-    public MyResponse getRealNameByUsername(MyRequest request) {
+    public com.example.grpc.proto.bean.MyResponse getRealNameByUsername(com.example.grpc.proto.bean.MyRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetRealNameByUsernameMethod(), getCallOptions(), request);
     }
@@ -203,6 +221,9 @@ public final class StudentServiceGrpc {
 
   /**
    * A stub to allow clients to do ListenableFuture-style rpc calls to service StudentService.
+   * <pre>
+   * 方法名不能和类名一样
+   * </pre>
    */
   public static final class StudentServiceFutureStub
       extends io.grpc.stub.AbstractFutureStub<StudentServiceFutureStub> {
@@ -211,7 +232,7 @@ public final class StudentServiceGrpc {
       super(channel, callOptions);
     }
 
-    @Override
+    @java.lang.Override
     protected StudentServiceFutureStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       return new StudentServiceFutureStub(channel, callOptions);
@@ -219,8 +240,8 @@ public final class StudentServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<MyResponse> getRealNameByUsername(
-        MyRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.example.grpc.proto.bean.MyResponse> getRealNameByUsername(
+        com.example.grpc.proto.bean.MyRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGetRealNameByUsernameMethod(), getCallOptions()), request);
     }
@@ -241,21 +262,21 @@ public final class StudentServiceGrpc {
       this.methodId = methodId;
     }
 
-    @Override
-    @SuppressWarnings("unchecked")
+    @java.lang.Override
+    @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_GET_REAL_NAME_BY_USERNAME:
-          serviceImpl.getRealNameByUsername((MyRequest) request,
-              (io.grpc.stub.StreamObserver<MyResponse>) responseObserver);
+          serviceImpl.getRealNameByUsername((com.example.grpc.proto.bean.MyRequest) request,
+              (io.grpc.stub.StreamObserver<com.example.grpc.proto.bean.MyResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
       }
     }
 
-    @Override
-    @SuppressWarnings("unchecked")
+    @java.lang.Override
+    @java.lang.SuppressWarnings("unchecked")
     public io.grpc.stub.StreamObserver<Req> invoke(
         io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
@@ -271,8 +292,8 @@ public final class StudentServiceGrpc {
           getGetRealNameByUsernameMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
             new MethodHandlers<
-              MyRequest,
-              MyResponse>(
+              com.example.grpc.proto.bean.MyRequest,
+              com.example.grpc.proto.bean.MyResponse>(
                 service, METHODID_GET_REAL_NAME_BY_USERNAME)))
         .build();
   }
@@ -281,12 +302,12 @@ public final class StudentServiceGrpc {
       implements io.grpc.protobuf.ProtoFileDescriptorSupplier, io.grpc.protobuf.ProtoServiceDescriptorSupplier {
     StudentServiceBaseDescriptorSupplier() {}
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return StudentProto.getDescriptor();
+      return com.example.grpc.proto.bean.Student.getDescriptor();
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Descriptors.ServiceDescriptor getServiceDescriptor() {
       return getFileDescriptor().findServiceByName("StudentService");
     }
@@ -300,13 +321,13 @@ public final class StudentServiceGrpc {
   private static final class StudentServiceMethodDescriptorSupplier
       extends StudentServiceBaseDescriptorSupplier
       implements io.grpc.protobuf.ProtoMethodDescriptorSupplier {
-    private final String methodName;
+    private final java.lang.String methodName;
 
-    StudentServiceMethodDescriptorSupplier(String methodName) {
+    StudentServiceMethodDescriptorSupplier(java.lang.String methodName) {
       this.methodName = methodName;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Descriptors.MethodDescriptor getMethodDescriptor() {
       return getServiceDescriptor().findMethodByName(methodName);
     }
