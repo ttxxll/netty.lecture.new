@@ -111,6 +111,37 @@ public final class StudentServiceGrpc {
     return getGetStudentListByAgesMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.example.grpc.proto.bean.StreamRequest,
+      com.example.grpc.proto.bean.StreamResponse> getBiTalkMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "BiTalk",
+      requestType = com.example.grpc.proto.bean.StreamRequest.class,
+      responseType = com.example.grpc.proto.bean.StreamResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
+  public static io.grpc.MethodDescriptor<com.example.grpc.proto.bean.StreamRequest,
+      com.example.grpc.proto.bean.StreamResponse> getBiTalkMethod() {
+    io.grpc.MethodDescriptor<com.example.grpc.proto.bean.StreamRequest, com.example.grpc.proto.bean.StreamResponse> getBiTalkMethod;
+    if ((getBiTalkMethod = StudentServiceGrpc.getBiTalkMethod) == null) {
+      synchronized (StudentServiceGrpc.class) {
+        if ((getBiTalkMethod = StudentServiceGrpc.getBiTalkMethod) == null) {
+          StudentServiceGrpc.getBiTalkMethod = getBiTalkMethod =
+              io.grpc.MethodDescriptor.<com.example.grpc.proto.bean.StreamRequest, com.example.grpc.proto.bean.StreamResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "BiTalk"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.example.grpc.proto.bean.StreamRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.example.grpc.proto.bean.StreamResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new StudentServiceMethodDescriptorSupplier("BiTalk"))
+              .build();
+        }
+      }
+    }
+    return getBiTalkMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -197,6 +228,13 @@ public final class StudentServiceGrpc {
         io.grpc.stub.StreamObserver<com.example.grpc.proto.bean.StudentResponseList> responseObserver) {
       return io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall(getGetStudentListByAgesMethod(), responseObserver);
     }
+
+    /**
+     */
+    default io.grpc.stub.StreamObserver<com.example.grpc.proto.bean.StreamRequest> biTalk(
+        io.grpc.stub.StreamObserver<com.example.grpc.proto.bean.StreamResponse> responseObserver) {
+      return io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall(getBiTalkMethod(), responseObserver);
+    }
   }
 
   /**
@@ -255,6 +293,14 @@ public final class StudentServiceGrpc {
       return io.grpc.stub.ClientCalls.asyncClientStreamingCall(
           getChannel().newCall(getGetStudentListByAgesMethod(), getCallOptions()), responseObserver);
     }
+
+    /**
+     */
+    public io.grpc.stub.StreamObserver<com.example.grpc.proto.bean.StreamRequest> biTalk(
+        io.grpc.stub.StreamObserver<com.example.grpc.proto.bean.StreamResponse> responseObserver) {
+      return io.grpc.stub.ClientCalls.asyncBidiStreamingCall(
+          getChannel().newCall(getBiTalkMethod(), getCallOptions()), responseObserver);
+    }
   }
 
   /**
@@ -299,6 +345,15 @@ public final class StudentServiceGrpc {
         getStudentListByAges() {
       return io.grpc.stub.ClientCalls.blockingClientStreamingCall(
           getChannel(), getGetStudentListByAgesMethod(), getCallOptions());
+    }
+
+    /**
+     */
+    @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/10918")
+    public io.grpc.stub.BlockingClientCall<com.example.grpc.proto.bean.StreamRequest, com.example.grpc.proto.bean.StreamResponse>
+        biTalk() {
+      return io.grpc.stub.ClientCalls.blockingBidiStreamingCall(
+          getChannel(), getBiTalkMethod(), getCallOptions());
     }
   }
 
@@ -368,6 +423,7 @@ public final class StudentServiceGrpc {
   private static final int METHODID_GET_REAL_NAME_BY_USERNAME = 0;
   private static final int METHODID_GET_STUDENT_BY_AGE = 1;
   private static final int METHODID_GET_STUDENT_LIST_BY_AGES = 2;
+  private static final int METHODID_BI_TALK = 3;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -407,6 +463,9 @@ public final class StudentServiceGrpc {
         case METHODID_GET_STUDENT_LIST_BY_AGES:
           return (io.grpc.stub.StreamObserver<Req>) serviceImpl.getStudentListByAges(
               (io.grpc.stub.StreamObserver<com.example.grpc.proto.bean.StudentResponseList>) responseObserver);
+        case METHODID_BI_TALK:
+          return (io.grpc.stub.StreamObserver<Req>) serviceImpl.biTalk(
+              (io.grpc.stub.StreamObserver<com.example.grpc.proto.bean.StreamResponse>) responseObserver);
         default:
           throw new AssertionError();
       }
@@ -436,6 +495,13 @@ public final class StudentServiceGrpc {
               com.example.grpc.proto.bean.StudentRequest,
               com.example.grpc.proto.bean.StudentResponseList>(
                 service, METHODID_GET_STUDENT_LIST_BY_AGES)))
+        .addMethod(
+          getBiTalkMethod(),
+          io.grpc.stub.ServerCalls.asyncBidiStreamingCall(
+            new MethodHandlers<
+              com.example.grpc.proto.bean.StreamRequest,
+              com.example.grpc.proto.bean.StreamResponse>(
+                service, METHODID_BI_TALK)))
         .build();
   }
 
@@ -487,6 +553,7 @@ public final class StudentServiceGrpc {
               .addMethod(getGetRealNameByUsernameMethod())
               .addMethod(getGetStudentByAgeMethod())
               .addMethod(getGetStudentListByAgesMethod())
+              .addMethod(getBiTalkMethod())
               .build();
         }
       }

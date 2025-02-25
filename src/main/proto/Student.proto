@@ -29,7 +29,15 @@ message StudentResponse {
 }
 
 message StudentResponseList {
-  repeated StudentResponse studentResponseList = 1;
+  repeated StudentResponse studentResponse = 1;
+}
+
+message StreamRequest {
+  string request_info = 1;
+}
+
+message StreamResponse {
+  string request_info = 1;
 }
 
 // 方法名不能和类名一样
@@ -40,4 +48,6 @@ service StudentService {
   rpc GetStudentByAge(StudentRequest) returns (stream StudentResponse) {}
 
   rpc GetStudentListByAges(stream StudentRequest) returns (StudentResponseList) {}
+
+  rpc BiTalk(stream StreamRequest) returns (stream StreamResponse) {};
 }

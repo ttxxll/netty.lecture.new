@@ -9,26 +9,26 @@ public interface StudentResponseListOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .com.example.grpc.proto.StudentResponse studentResponseList = 1;</code>
+   * <code>repeated .com.example.grpc.proto.StudentResponse studentResponse = 1;</code>
    */
   java.util.List<com.example.grpc.proto.bean.StudentResponse> 
-      getStudentResponseListList();
+      getStudentResponseList();
   /**
-   * <code>repeated .com.example.grpc.proto.StudentResponse studentResponseList = 1;</code>
+   * <code>repeated .com.example.grpc.proto.StudentResponse studentResponse = 1;</code>
    */
-  com.example.grpc.proto.bean.StudentResponse getStudentResponseList(int index);
+  com.example.grpc.proto.bean.StudentResponse getStudentResponse(int index);
   /**
-   * <code>repeated .com.example.grpc.proto.StudentResponse studentResponseList = 1;</code>
+   * <code>repeated .com.example.grpc.proto.StudentResponse studentResponse = 1;</code>
    */
-  int getStudentResponseListCount();
+  int getStudentResponseCount();
   /**
-   * <code>repeated .com.example.grpc.proto.StudentResponse studentResponseList = 1;</code>
+   * <code>repeated .com.example.grpc.proto.StudentResponse studentResponse = 1;</code>
    */
   java.util.List<? extends com.example.grpc.proto.bean.StudentResponseOrBuilder> 
-      getStudentResponseListOrBuilderList();
+      getStudentResponseOrBuilderList();
   /**
-   * <code>repeated .com.example.grpc.proto.StudentResponse studentResponseList = 1;</code>
+   * <code>repeated .com.example.grpc.proto.StudentResponse studentResponse = 1;</code>
    */
-  com.example.grpc.proto.bean.StudentResponseOrBuilder getStudentResponseListOrBuilder(
+  com.example.grpc.proto.bean.StudentResponseOrBuilder getStudentResponseOrBuilder(
       int index);
 }

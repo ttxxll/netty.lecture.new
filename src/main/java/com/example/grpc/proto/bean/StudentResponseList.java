@@ -17,7 +17,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private StudentResponseList() {
-    studentResponseList_ = java.util.Collections.emptyList();
+    studentResponse_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -40,45 +40,45 @@ private static final long serialVersionUID = 0L;
             com.example.grpc.proto.bean.StudentResponseList.class, com.example.grpc.proto.bean.StudentResponseList.Builder.class);
   }
 
-  public static final int STUDENTRESPONSELIST_FIELD_NUMBER = 1;
+  public static final int STUDENTRESPONSE_FIELD_NUMBER = 1;
   @SuppressWarnings("serial")
-  private java.util.List<com.example.grpc.proto.bean.StudentResponse> studentResponseList_;
+  private java.util.List<com.example.grpc.proto.bean.StudentResponse> studentResponse_;
   /**
-   * <code>repeated .com.example.grpc.proto.StudentResponse studentResponseList = 1;</code>
+   * <code>repeated .com.example.grpc.proto.StudentResponse studentResponse = 1;</code>
    */
   @java.lang.Override
-  public java.util.List<com.example.grpc.proto.bean.StudentResponse> getStudentResponseListList() {
-    return studentResponseList_;
+  public java.util.List<com.example.grpc.proto.bean.StudentResponse> getStudentResponseList() {
+    return studentResponse_;
   }
   /**
-   * <code>repeated .com.example.grpc.proto.StudentResponse studentResponseList = 1;</code>
+   * <code>repeated .com.example.grpc.proto.StudentResponse studentResponse = 1;</code>
    */
   @java.lang.Override
   public java.util.List<? extends com.example.grpc.proto.bean.StudentResponseOrBuilder> 
-      getStudentResponseListOrBuilderList() {
-    return studentResponseList_;
+      getStudentResponseOrBuilderList() {
+    return studentResponse_;
   }
   /**
-   * <code>repeated .com.example.grpc.proto.StudentResponse studentResponseList = 1;</code>
+   * <code>repeated .com.example.grpc.proto.StudentResponse studentResponse = 1;</code>
    */
   @java.lang.Override
-  public int getStudentResponseListCount() {
-    return studentResponseList_.size();
+  public int getStudentResponseCount() {
+    return studentResponse_.size();
   }
   /**
-   * <code>repeated .com.example.grpc.proto.StudentResponse studentResponseList = 1;</code>
+   * <code>repeated .com.example.grpc.proto.StudentResponse studentResponse = 1;</code>
    */
   @java.lang.Override
-  public com.example.grpc.proto.bean.StudentResponse getStudentResponseList(int index) {
-    return studentResponseList_.get(index);
+  public com.example.grpc.proto.bean.StudentResponse getStudentResponse(int index) {
+    return studentResponse_.get(index);
   }
   /**
-   * <code>repeated .com.example.grpc.proto.StudentResponse studentResponseList = 1;</code>
+   * <code>repeated .com.example.grpc.proto.StudentResponse studentResponse = 1;</code>
    */
   @java.lang.Override
-  public com.example.grpc.proto.bean.StudentResponseOrBuilder getStudentResponseListOrBuilder(
+  public com.example.grpc.proto.bean.StudentResponseOrBuilder getStudentResponseOrBuilder(
       int index) {
-    return studentResponseList_.get(index);
+    return studentResponse_.get(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -95,8 +95,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    for (int i = 0; i < studentResponseList_.size(); i++) {
-      output.writeMessage(1, studentResponseList_.get(i));
+    for (int i = 0; i < studentResponse_.size(); i++) {
+      output.writeMessage(1, studentResponse_.get(i));
     }
     getUnknownFields().writeTo(output);
   }
@@ -107,9 +107,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    for (int i = 0; i < studentResponseList_.size(); i++) {
+    for (int i = 0; i < studentResponse_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, studentResponseList_.get(i));
+        .computeMessageSize(1, studentResponse_.get(i));
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -126,8 +126,8 @@ private static final long serialVersionUID = 0L;
     }
     com.example.grpc.proto.bean.StudentResponseList other = (com.example.grpc.proto.bean.StudentResponseList) obj;
 
-    if (!getStudentResponseListList()
-        .equals(other.getStudentResponseListList())) return false;
+    if (!getStudentResponseList()
+        .equals(other.getStudentResponseList())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -139,9 +139,9 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (getStudentResponseListCount() > 0) {
-      hash = (37 * hash) + STUDENTRESPONSELIST_FIELD_NUMBER;
-      hash = (53 * hash) + getStudentResponseListList().hashCode();
+    if (getStudentResponseCount() > 0) {
+      hash = (37 * hash) + STUDENTRESPONSE_FIELD_NUMBER;
+      hash = (53 * hash) + getStudentResponseList().hashCode();
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -274,11 +274,11 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
-      if (studentResponseListBuilder_ == null) {
-        studentResponseList_ = java.util.Collections.emptyList();
+      if (studentResponseBuilder_ == null) {
+        studentResponse_ = java.util.Collections.emptyList();
       } else {
-        studentResponseList_ = null;
-        studentResponseListBuilder_.clear();
+        studentResponse_ = null;
+        studentResponseBuilder_.clear();
       }
       bitField0_ = (bitField0_ & ~0x00000001);
       return this;
@@ -314,14 +314,14 @@ private static final long serialVersionUID = 0L;
     }
 
     private void buildPartialRepeatedFields(com.example.grpc.proto.bean.StudentResponseList result) {
-      if (studentResponseListBuilder_ == null) {
+      if (studentResponseBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
-          studentResponseList_ = java.util.Collections.unmodifiableList(studentResponseList_);
+          studentResponse_ = java.util.Collections.unmodifiableList(studentResponse_);
           bitField0_ = (bitField0_ & ~0x00000001);
         }
-        result.studentResponseList_ = studentResponseList_;
+        result.studentResponse_ = studentResponse_;
       } else {
-        result.studentResponseList_ = studentResponseListBuilder_.build();
+        result.studentResponse_ = studentResponseBuilder_.build();
       }
     }
 
@@ -373,29 +373,29 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.example.grpc.proto.bean.StudentResponseList other) {
       if (other == com.example.grpc.proto.bean.StudentResponseList.getDefaultInstance()) return this;
-      if (studentResponseListBuilder_ == null) {
-        if (!other.studentResponseList_.isEmpty()) {
-          if (studentResponseList_.isEmpty()) {
-            studentResponseList_ = other.studentResponseList_;
+      if (studentResponseBuilder_ == null) {
+        if (!other.studentResponse_.isEmpty()) {
+          if (studentResponse_.isEmpty()) {
+            studentResponse_ = other.studentResponse_;
             bitField0_ = (bitField0_ & ~0x00000001);
           } else {
-            ensureStudentResponseListIsMutable();
-            studentResponseList_.addAll(other.studentResponseList_);
+            ensureStudentResponseIsMutable();
+            studentResponse_.addAll(other.studentResponse_);
           }
           onChanged();
         }
       } else {
-        if (!other.studentResponseList_.isEmpty()) {
-          if (studentResponseListBuilder_.isEmpty()) {
-            studentResponseListBuilder_.dispose();
-            studentResponseListBuilder_ = null;
-            studentResponseList_ = other.studentResponseList_;
+        if (!other.studentResponse_.isEmpty()) {
+          if (studentResponseBuilder_.isEmpty()) {
+            studentResponseBuilder_.dispose();
+            studentResponseBuilder_ = null;
+            studentResponse_ = other.studentResponse_;
             bitField0_ = (bitField0_ & ~0x00000001);
-            studentResponseListBuilder_ = 
+            studentResponseBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                 getStudentResponseListFieldBuilder() : null;
+                 getStudentResponseFieldBuilder() : null;
           } else {
-            studentResponseListBuilder_.addAllMessages(other.studentResponseList_);
+            studentResponseBuilder_.addAllMessages(other.studentResponse_);
           }
         }
       }
@@ -430,11 +430,11 @@ private static final long serialVersionUID = 0L;
                   input.readMessage(
                       com.example.grpc.proto.bean.StudentResponse.parser(),
                       extensionRegistry);
-              if (studentResponseListBuilder_ == null) {
-                ensureStudentResponseListIsMutable();
-                studentResponseList_.add(m);
+              if (studentResponseBuilder_ == null) {
+                ensureStudentResponseIsMutable();
+                studentResponse_.add(m);
               } else {
-                studentResponseListBuilder_.addMessage(m);
+                studentResponseBuilder_.addMessage(m);
               }
               break;
             } // case 10
@@ -455,244 +455,244 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.util.List<com.example.grpc.proto.bean.StudentResponse> studentResponseList_ =
+    private java.util.List<com.example.grpc.proto.bean.StudentResponse> studentResponse_ =
       java.util.Collections.emptyList();
-    private void ensureStudentResponseListIsMutable() {
+    private void ensureStudentResponseIsMutable() {
       if (!((bitField0_ & 0x00000001) != 0)) {
-        studentResponseList_ = new java.util.ArrayList<com.example.grpc.proto.bean.StudentResponse>(studentResponseList_);
+        studentResponse_ = new java.util.ArrayList<com.example.grpc.proto.bean.StudentResponse>(studentResponse_);
         bitField0_ |= 0x00000001;
        }
     }
 
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.example.grpc.proto.bean.StudentResponse, com.example.grpc.proto.bean.StudentResponse.Builder, com.example.grpc.proto.bean.StudentResponseOrBuilder> studentResponseListBuilder_;
+        com.example.grpc.proto.bean.StudentResponse, com.example.grpc.proto.bean.StudentResponse.Builder, com.example.grpc.proto.bean.StudentResponseOrBuilder> studentResponseBuilder_;
 
     /**
-     * <code>repeated .com.example.grpc.proto.StudentResponse studentResponseList = 1;</code>
+     * <code>repeated .com.example.grpc.proto.StudentResponse studentResponse = 1;</code>
      */
-    public java.util.List<com.example.grpc.proto.bean.StudentResponse> getStudentResponseListList() {
-      if (studentResponseListBuilder_ == null) {
-        return java.util.Collections.unmodifiableList(studentResponseList_);
+    public java.util.List<com.example.grpc.proto.bean.StudentResponse> getStudentResponseList() {
+      if (studentResponseBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(studentResponse_);
       } else {
-        return studentResponseListBuilder_.getMessageList();
+        return studentResponseBuilder_.getMessageList();
       }
     }
     /**
-     * <code>repeated .com.example.grpc.proto.StudentResponse studentResponseList = 1;</code>
+     * <code>repeated .com.example.grpc.proto.StudentResponse studentResponse = 1;</code>
      */
-    public int getStudentResponseListCount() {
-      if (studentResponseListBuilder_ == null) {
-        return studentResponseList_.size();
+    public int getStudentResponseCount() {
+      if (studentResponseBuilder_ == null) {
+        return studentResponse_.size();
       } else {
-        return studentResponseListBuilder_.getCount();
+        return studentResponseBuilder_.getCount();
       }
     }
     /**
-     * <code>repeated .com.example.grpc.proto.StudentResponse studentResponseList = 1;</code>
+     * <code>repeated .com.example.grpc.proto.StudentResponse studentResponse = 1;</code>
      */
-    public com.example.grpc.proto.bean.StudentResponse getStudentResponseList(int index) {
-      if (studentResponseListBuilder_ == null) {
-        return studentResponseList_.get(index);
+    public com.example.grpc.proto.bean.StudentResponse getStudentResponse(int index) {
+      if (studentResponseBuilder_ == null) {
+        return studentResponse_.get(index);
       } else {
-        return studentResponseListBuilder_.getMessage(index);
+        return studentResponseBuilder_.getMessage(index);
       }
     }
     /**
-     * <code>repeated .com.example.grpc.proto.StudentResponse studentResponseList = 1;</code>
+     * <code>repeated .com.example.grpc.proto.StudentResponse studentResponse = 1;</code>
      */
-    public Builder setStudentResponseList(
+    public Builder setStudentResponse(
         int index, com.example.grpc.proto.bean.StudentResponse value) {
-      if (studentResponseListBuilder_ == null) {
+      if (studentResponseBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureStudentResponseListIsMutable();
-        studentResponseList_.set(index, value);
+        ensureStudentResponseIsMutable();
+        studentResponse_.set(index, value);
         onChanged();
       } else {
-        studentResponseListBuilder_.setMessage(index, value);
+        studentResponseBuilder_.setMessage(index, value);
       }
       return this;
     }
     /**
-     * <code>repeated .com.example.grpc.proto.StudentResponse studentResponseList = 1;</code>
+     * <code>repeated .com.example.grpc.proto.StudentResponse studentResponse = 1;</code>
      */
-    public Builder setStudentResponseList(
+    public Builder setStudentResponse(
         int index, com.example.grpc.proto.bean.StudentResponse.Builder builderForValue) {
-      if (studentResponseListBuilder_ == null) {
-        ensureStudentResponseListIsMutable();
-        studentResponseList_.set(index, builderForValue.build());
+      if (studentResponseBuilder_ == null) {
+        ensureStudentResponseIsMutable();
+        studentResponse_.set(index, builderForValue.build());
         onChanged();
       } else {
-        studentResponseListBuilder_.setMessage(index, builderForValue.build());
+        studentResponseBuilder_.setMessage(index, builderForValue.build());
       }
       return this;
     }
     /**
-     * <code>repeated .com.example.grpc.proto.StudentResponse studentResponseList = 1;</code>
+     * <code>repeated .com.example.grpc.proto.StudentResponse studentResponse = 1;</code>
      */
-    public Builder addStudentResponseList(com.example.grpc.proto.bean.StudentResponse value) {
-      if (studentResponseListBuilder_ == null) {
+    public Builder addStudentResponse(com.example.grpc.proto.bean.StudentResponse value) {
+      if (studentResponseBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureStudentResponseListIsMutable();
-        studentResponseList_.add(value);
+        ensureStudentResponseIsMutable();
+        studentResponse_.add(value);
         onChanged();
       } else {
-        studentResponseListBuilder_.addMessage(value);
+        studentResponseBuilder_.addMessage(value);
       }
       return this;
     }
     /**
-     * <code>repeated .com.example.grpc.proto.StudentResponse studentResponseList = 1;</code>
+     * <code>repeated .com.example.grpc.proto.StudentResponse studentResponse = 1;</code>
      */
-    public Builder addStudentResponseList(
+    public Builder addStudentResponse(
         int index, com.example.grpc.proto.bean.StudentResponse value) {
-      if (studentResponseListBuilder_ == null) {
+      if (studentResponseBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureStudentResponseListIsMutable();
-        studentResponseList_.add(index, value);
+        ensureStudentResponseIsMutable();
+        studentResponse_.add(index, value);
         onChanged();
       } else {
-        studentResponseListBuilder_.addMessage(index, value);
+        studentResponseBuilder_.addMessage(index, value);
       }
       return this;
     }
     /**
-     * <code>repeated .com.example.grpc.proto.StudentResponse studentResponseList = 1;</code>
+     * <code>repeated .com.example.grpc.proto.StudentResponse studentResponse = 1;</code>
      */
-    public Builder addStudentResponseList(
+    public Builder addStudentResponse(
         com.example.grpc.proto.bean.StudentResponse.Builder builderForValue) {
-      if (studentResponseListBuilder_ == null) {
-        ensureStudentResponseListIsMutable();
-        studentResponseList_.add(builderForValue.build());
+      if (studentResponseBuilder_ == null) {
+        ensureStudentResponseIsMutable();
+        studentResponse_.add(builderForValue.build());
         onChanged();
       } else {
-        studentResponseListBuilder_.addMessage(builderForValue.build());
+        studentResponseBuilder_.addMessage(builderForValue.build());
       }
       return this;
     }
     /**
-     * <code>repeated .com.example.grpc.proto.StudentResponse studentResponseList = 1;</code>
+     * <code>repeated .com.example.grpc.proto.StudentResponse studentResponse = 1;</code>
      */
-    public Builder addStudentResponseList(
+    public Builder addStudentResponse(
         int index, com.example.grpc.proto.bean.StudentResponse.Builder builderForValue) {
-      if (studentResponseListBuilder_ == null) {
-        ensureStudentResponseListIsMutable();
-        studentResponseList_.add(index, builderForValue.build());
+      if (studentResponseBuilder_ == null) {
+        ensureStudentResponseIsMutable();
+        studentResponse_.add(index, builderForValue.build());
         onChanged();
       } else {
-        studentResponseListBuilder_.addMessage(index, builderForValue.build());
+        studentResponseBuilder_.addMessage(index, builderForValue.build());
       }
       return this;
     }
     /**
-     * <code>repeated .com.example.grpc.proto.StudentResponse studentResponseList = 1;</code>
+     * <code>repeated .com.example.grpc.proto.StudentResponse studentResponse = 1;</code>
      */
-    public Builder addAllStudentResponseList(
+    public Builder addAllStudentResponse(
         java.lang.Iterable<? extends com.example.grpc.proto.bean.StudentResponse> values) {
-      if (studentResponseListBuilder_ == null) {
-        ensureStudentResponseListIsMutable();
+      if (studentResponseBuilder_ == null) {
+        ensureStudentResponseIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, studentResponseList_);
+            values, studentResponse_);
         onChanged();
       } else {
-        studentResponseListBuilder_.addAllMessages(values);
+        studentResponseBuilder_.addAllMessages(values);
       }
       return this;
     }
     /**
-     * <code>repeated .com.example.grpc.proto.StudentResponse studentResponseList = 1;</code>
+     * <code>repeated .com.example.grpc.proto.StudentResponse studentResponse = 1;</code>
      */
-    public Builder clearStudentResponseList() {
-      if (studentResponseListBuilder_ == null) {
-        studentResponseList_ = java.util.Collections.emptyList();
+    public Builder clearStudentResponse() {
+      if (studentResponseBuilder_ == null) {
+        studentResponse_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
       } else {
-        studentResponseListBuilder_.clear();
+        studentResponseBuilder_.clear();
       }
       return this;
     }
     /**
-     * <code>repeated .com.example.grpc.proto.StudentResponse studentResponseList = 1;</code>
+     * <code>repeated .com.example.grpc.proto.StudentResponse studentResponse = 1;</code>
      */
-    public Builder removeStudentResponseList(int index) {
-      if (studentResponseListBuilder_ == null) {
-        ensureStudentResponseListIsMutable();
-        studentResponseList_.remove(index);
+    public Builder removeStudentResponse(int index) {
+      if (studentResponseBuilder_ == null) {
+        ensureStudentResponseIsMutable();
+        studentResponse_.remove(index);
         onChanged();
       } else {
-        studentResponseListBuilder_.remove(index);
+        studentResponseBuilder_.remove(index);
       }
       return this;
     }
     /**
-     * <code>repeated .com.example.grpc.proto.StudentResponse studentResponseList = 1;</code>
+     * <code>repeated .com.example.grpc.proto.StudentResponse studentResponse = 1;</code>
      */
-    public com.example.grpc.proto.bean.StudentResponse.Builder getStudentResponseListBuilder(
+    public com.example.grpc.proto.bean.StudentResponse.Builder getStudentResponseBuilder(
         int index) {
-      return getStudentResponseListFieldBuilder().getBuilder(index);
+      return getStudentResponseFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .com.example.grpc.proto.StudentResponse studentResponseList = 1;</code>
+     * <code>repeated .com.example.grpc.proto.StudentResponse studentResponse = 1;</code>
      */
-    public com.example.grpc.proto.bean.StudentResponseOrBuilder getStudentResponseListOrBuilder(
+    public com.example.grpc.proto.bean.StudentResponseOrBuilder getStudentResponseOrBuilder(
         int index) {
-      if (studentResponseListBuilder_ == null) {
-        return studentResponseList_.get(index);  } else {
-        return studentResponseListBuilder_.getMessageOrBuilder(index);
+      if (studentResponseBuilder_ == null) {
+        return studentResponse_.get(index);  } else {
+        return studentResponseBuilder_.getMessageOrBuilder(index);
       }
     }
     /**
-     * <code>repeated .com.example.grpc.proto.StudentResponse studentResponseList = 1;</code>
+     * <code>repeated .com.example.grpc.proto.StudentResponse studentResponse = 1;</code>
      */
     public java.util.List<? extends com.example.grpc.proto.bean.StudentResponseOrBuilder> 
-         getStudentResponseListOrBuilderList() {
-      if (studentResponseListBuilder_ != null) {
-        return studentResponseListBuilder_.getMessageOrBuilderList();
+         getStudentResponseOrBuilderList() {
+      if (studentResponseBuilder_ != null) {
+        return studentResponseBuilder_.getMessageOrBuilderList();
       } else {
-        return java.util.Collections.unmodifiableList(studentResponseList_);
+        return java.util.Collections.unmodifiableList(studentResponse_);
       }
     }
     /**
-     * <code>repeated .com.example.grpc.proto.StudentResponse studentResponseList = 1;</code>
+     * <code>repeated .com.example.grpc.proto.StudentResponse studentResponse = 1;</code>
      */
-    public com.example.grpc.proto.bean.StudentResponse.Builder addStudentResponseListBuilder() {
-      return getStudentResponseListFieldBuilder().addBuilder(
+    public com.example.grpc.proto.bean.StudentResponse.Builder addStudentResponseBuilder() {
+      return getStudentResponseFieldBuilder().addBuilder(
           com.example.grpc.proto.bean.StudentResponse.getDefaultInstance());
     }
     /**
-     * <code>repeated .com.example.grpc.proto.StudentResponse studentResponseList = 1;</code>
+     * <code>repeated .com.example.grpc.proto.StudentResponse studentResponse = 1;</code>
      */
-    public com.example.grpc.proto.bean.StudentResponse.Builder addStudentResponseListBuilder(
+    public com.example.grpc.proto.bean.StudentResponse.Builder addStudentResponseBuilder(
         int index) {
-      return getStudentResponseListFieldBuilder().addBuilder(
+      return getStudentResponseFieldBuilder().addBuilder(
           index, com.example.grpc.proto.bean.StudentResponse.getDefaultInstance());
     }
     /**
-     * <code>repeated .com.example.grpc.proto.StudentResponse studentResponseList = 1;</code>
+     * <code>repeated .com.example.grpc.proto.StudentResponse studentResponse = 1;</code>
      */
     public java.util.List<com.example.grpc.proto.bean.StudentResponse.Builder> 
-         getStudentResponseListBuilderList() {
-      return getStudentResponseListFieldBuilder().getBuilderList();
+         getStudentResponseBuilderList() {
+      return getStudentResponseFieldBuilder().getBuilderList();
     }
     private com.google.protobuf.RepeatedFieldBuilderV3<
         com.example.grpc.proto.bean.StudentResponse, com.example.grpc.proto.bean.StudentResponse.Builder, com.example.grpc.proto.bean.StudentResponseOrBuilder> 
-        getStudentResponseListFieldBuilder() {
-      if (studentResponseListBuilder_ == null) {
-        studentResponseListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+        getStudentResponseFieldBuilder() {
+      if (studentResponseBuilder_ == null) {
+        studentResponseBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.example.grpc.proto.bean.StudentResponse, com.example.grpc.proto.bean.StudentResponse.Builder, com.example.grpc.proto.bean.StudentResponseOrBuilder>(
-                studentResponseList_,
+                studentResponse_,
                 ((bitField0_ & 0x00000001) != 0),
                 getParentForChildren(),
                 isClean());
-        studentResponseList_ = null;
+        studentResponse_ = null;
       }
-      return studentResponseListBuilder_;
+      return studentResponseBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
