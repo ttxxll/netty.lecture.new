@@ -18,7 +18,26 @@ message MyResponse {
   string realname = 2;
 }
 
+message StudentRequest {
+  int32 age = 1;
+}
+
+message StudentResponse {
+  string name = 1;
+  int32 age = 2;
+  string city = 3;
+}
+
+message StudentResponseList {
+  repeated StudentResponse studentResponseList = 1;
+}
+
 // 方法名不能和类名一样
 service StudentService {
+
   rpc GetRealNameByUsername(com.example.grpc.proto.MyRequest) returns (com.example.grpc.proto.MyResponse) {}
+
+  rpc GetStudentByAge(StudentRequest) returns (stream StudentResponse) {}
+
+  rpc GetStudentListByAges(stream StudentRequest) returns (StudentResponseList) {}
 }
