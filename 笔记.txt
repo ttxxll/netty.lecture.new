@@ -26,3 +26,35 @@ Channel指的是可以向其写入数据或是从中读取数据的对象，它�
 绝对方法与相对方法的含义:
     1.相对方法:limit值与position值会在操作时被考虑到。
     2.绝对方法:完全忽略掉limit值与position值。
+
+
+### 2.传统的Java网络编程
+传统的网络编程中，假设服务端监听8899端口，客户端与服务器建立连接后，服务端通过监听端口来接收客户端的连接请求并处理后续的通信数据。
+每次客户端端与服务端建立连接时，客户端都会分配一个可用的端口号（源端口）来与服务端进行通信。
+
+每次监听到一个连接，都需要一个线程来进行处理，在简单的业务场景下是合适的。如果面对是上百万的客户端连接，服务端的这种网络编程显然是不能满足的。
+每个客户端连接都需要一个线程来处理，首先操作系统允许创建的线程也是有限的，
+第二线程越多CPU进行切换调度的成本就越大，进行影响整体系统的执行效率。
+
+// 服务端代码
+ServerSocket serverSocketserverSocket.bind(8899);
+while(true){
+    Socket socket=serverSocket.accept();//阻塞方法
+    new Thread(socket){
+    run(){
+            socket.getInputStream();
+        }
+    };
+}
+
+// 客户端代码
+Socket socket=new Socket("localhost"，8899);
+socket.connect()i
+
+源端口属于5元组的一部分，用来确保即使多个客户端连接到同一个服务器端口，每个连接也能被正确区分和处理。
+五元组包括以下五个部分：
+传输层协议（Protocol）：通常是 TCP 或 UDP，用于区分不同的传输层协议。
+源IP地址（Source IP）：客户端的 IP 地址，如 192.168.1.100。
+源端口（Source Port）：客户端随机选择的临时端口（Ephemeral Port），如 54321。
+目的 IP 地址（Destination IP）：服务器的 IP 地址，如 10.0.0.1。
+目的端口（Destination Port）：服务器的监听端口，如 80（HTTP）或 443（HTTPS）
