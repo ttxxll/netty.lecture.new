@@ -27,6 +27,25 @@ Channel指的是可以向其写入数据或是从中读取数据的对象，它�
     1.相对方法:limit值与position值会在操作时被考虑到。
     2.绝对方法:完全忽略掉limit值与position值。
 
+### 1.
+Channel 是 Java NIO 中用于进行 I/O 操作的连接。它类似于传统 I/O 中的流，但 Channel 是双向的，既可以进行读操作，也可以进行写操作，
+而传统的流通常是单向的（输入流或输出流）。常见的 Channel 实现类有 FileChannel、SocketChannel、ServerSocketChannel 等。
+数据传输：Channel 负责与数据源（如文件、网络套接字等）进行数据的传输。数据可以从 Channel 读取到 ByteBuffer 中，也可以从 ByteBuffer 写入到 Channel 中。
+非阻塞模式：Channel 可以工作在阻塞或非阻塞模式下。在非阻塞模式下，Channel 的 I/O 操作不会阻塞线程，线程可以继续执行其他任务。
+
+Selector 是 Java NIO 中的多路复用器，它允许一个线程管理多个 Channel 的 I/O 操作。通过 Selector，
+可以在一个线程中同时监听多个 Channel 的读写事件，从而提高系统的并发处理能力。
+注册Channel：
+    Channel需要注册到Selector上，并指定要监听的事件类型（如读、写、连接、接受连接等）。注册后，Selector会监控这些Channel的状态变化。
+选择就绪的Channel：
+    Selector的select()方法是一个阻塞方法，它会一直阻塞直到至少有一个注册的Channel准备好进行I/O操作。
+    当有Channel准备好时，select() 方法会返回准备好的Channel的数量。
+事件循环：在调用select()方法后，可以通过selector.selectedKeys()方法获取已经准备好的Channel所对应的SelectionKey集合，
+        然后遍历这个集合，处理每个准备好的Channel。
+
+SelectionKey 是 Channel 和 Selector 之间的关联，它包含了 Channel 的状态信息和注册的事件。
+每个注册到 Selector 上的 Channel 都会关联一个 SelectionKey。
+
 
 ### 2.传统的Java网络编程
 传统的网络编程中，假设服务端监听8899端口，客户端与服务器建立连接后，服务端通过监听端口来接收客户端的连接请求并处理后续的通信数据。
@@ -58,3 +77,8 @@ socket.connect()i
 源端口（Source Port）：客户端随机选择的临时端口（Ephemeral Port），如 54321。
 目的 IP 地址（Destination IP）：服务器的 IP 地址，如 10.0.0.1。
 目的端口（Destination Port）：服务器的监听端口，如 80（HTTP）或 443（HTTPS）
+
+### 3.selector
+1. selector上可以注册多个channel
+2. 每个channel注册到selector上时，可以指定关注的事件，比如accept，read，write，connect
+3. 当发生特定的事件时，意味着selector中注册的channel可以进行IO时，获取到这些channel和其对应发生的事件，进而根据事件类型做处理。比如监听到连接，可读可写等。
