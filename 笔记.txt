@@ -82,3 +82,18 @@ socket.connect()i
 1. selector上可以注册多个channel
 2. 每个channel注册到selector上时，可以指定关注的事件，比如accept，read，write，connect
 3. 当发生特定的事件时，意味着selector中注册的channel可以进行IO时，获取到这些channel和其对应发生的事件，进而根据事件类型做处理。比如监听到连接，可读可写等。
+
+### 4.编码知识
+0. 文件在磁盘存储时都会有一个编码
+1. ASCII码：7bit表示一个字符，一共128个字符
+2. ISO-8859-1：8bit，1字节表示一个字符，一共256个字符
+3. gb2312：2个字节表示一个字符（英文字符也是2个字节表示）
+4. gbk，gb18030：2个字节表示一个字符
+5. unicode编码：2个字节表示一个字符
+6. utf-8：unicode编码是一种编码方式，utf-8可以认为是文件具体的存储格式，是unicode的一种实现方式
+          变长的，英文字符1个字节，汉字3个字节表示
+7. utf-16：定长的，2个字节表示一个字符
+    utf16-LE(little endian) utf16-BE(big endian)
+    windows文件的开头会有两个字节，也叫做Zero Width No-Break Space，如果是0xFEFF(大端BE)，0xFFFE(小端LE)
+
+8. BOM(Byte Order Mark)：字节序，文件头带0xFEFF(大端BE)或0xFFFE(小端LE)，就有BOM头

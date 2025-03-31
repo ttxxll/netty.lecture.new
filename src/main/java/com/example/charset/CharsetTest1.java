@@ -31,15 +31,21 @@ public class CharsetTest1 {
         // 文件内容直接映射到内存，直接在内存处理，最后OS持久化到文件
         MappedByteBuffer mappedByteBuffer = inputChannel.map(FileChannel.MapMode.READ_ONLY, 0, length);
 
+        Charset.availableCharsets().forEach((k,v) -> {
+            System.out.println(k + ", " + v);
+        });
+
         /**
          * 因为 ISO-8859-1 的编码和解码过程是可逆的，所以在整个操作过程中，文件的字节数据并没有发生改变。尽管原文件是 UTF - 8 编码，
-         * 但使用 ISO-8859-1 进行解码和编码后，字节数据保持不变，因此新文件依然是 UTF - 8 编码，内容也就不会出现乱码
+         * 但使用 ISO-8859-1 进行解码和编码后，字节数据保持不变，因此新文件依然是 UTF - 8 编码，内容也就不会出现乱码。
+         * （不会丢弃字节内容）
          */
         Charset charset = StandardCharsets.ISO_8859_1;
+        //Charset charset = StandardCharsets.UTF_8;
         CharsetDecoder utf8Decoder = charset.newDecoder();
         CharsetEncoder utf8Encoder = charset.newEncoder();
 
-        // 将文件内容先解码得到字符，在编码得到字节，在写到output.txt中
+        // 将文件内容先解码得到字符，再编码得到字节，再写到output.txt中
         CharBuffer charBuffer = utf8Decoder.decode(mappedByteBuffer);
         ByteBuffer byteBuffer = utf8Encoder.encode(charBuffer);
         outputChannel.write(byteBuffer);
