@@ -16,6 +16,13 @@ import java.net.URI;
  * 客户端主端断开连接的话，服务端也能感知到，进而注销关闭相关资源
  */
 public class TestHttpServerHandler extends SimpleChannelInboundHandler<HttpObject> {
+
+    /**
+     * 客户端请求进来时，会调用channelRead0
+     * @param ctx
+     * @param msg
+     * @throws Exception
+     */
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, HttpObject msg) throws Exception {
         System.out.println(msg.getClass());

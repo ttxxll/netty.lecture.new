@@ -10,6 +10,9 @@ import io.netty.handler.logging.LoggingHandler;
 
 import java.net.InetSocketAddress;
 
+/**
+ * 长连接 Netty服务器
+ */
 public class MyWebSocketServer {
     public static void main(String[] args) {
         EventLoopGroup bossGroup = new NioEventLoopGroup();

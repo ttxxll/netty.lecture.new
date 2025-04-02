@@ -4,6 +4,10 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.handler.timeout.IdleStateEvent;
 
+/**
+ * SimpleChannelInboundHandler是ChannelInboundHandlerAdapter的子类
+ * 用户事件连接处理器
+ */
 public class MyServerHandler extends ChannelInboundHandlerAdapter {
 
     @Override

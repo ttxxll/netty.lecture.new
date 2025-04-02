@@ -9,6 +9,9 @@ import io.netty.util.concurrent.GlobalEventExecutor;
 
 public class MyChatServerHandler extends SimpleChannelInboundHandler<String> {
 
+    /**
+     * 保存与多个客户端的连接信息
+     */
     private static ChannelGroup channelGroup = new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
 
     @Override

@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
  * 读或者写3s触发事件：与客户端建立连接后，3s没有读/写触发读写
  *
  * handlerRemoved
- * 有了这个钩子 为什么还需要心跳检测来判断是否连接断开，举个例子客户端和服务端建立连接后，没有退出，之后开启了飞行模式，这时是不会触发这个狗子的，但是连接已断开
+ * 有了这个钩子 为什么还需要心跳检测来判断是否连接断开，举个例子客户端和服务端建立连接后，没有退出，之后开启了飞行模式，这时是不会触发这个钩子的，但是连接已断开
  *
  */
 public class MyServerInitializer extends ChannelInitializer<SocketChannel> {

@@ -6,6 +6,9 @@ import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
 
 import java.time.LocalDateTime;
 
+/**
+ * 我们这里约定用Text文件格式来进行数据传输：TextWebSocketFrame
+ */
 public class WebSocketTextFrameHandler extends SimpleChannelInboundHandler<TextWebSocketFrame> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, TextWebSocketFrame msg) throws Exception {
