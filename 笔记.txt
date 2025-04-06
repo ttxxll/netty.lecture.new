@@ -1,3 +1,10 @@
+### 1.Netty介绍
+Netty是由JBOSS提供的一个java开源框架。
+Netty提供异步的、事件驱动的网络应用程序框架和工具，用以快速开发高性能、高可靠性的网络服务器和客户端程序。
+也就是说，Netty 是一个基于NIO的客户、服务器端编程框架。
+使用Netty 可以确保你快速和简单的开发出一个网络应用，例如实现了某种协议的客户、服务端应用。
+Netty相当于简化和流线化了网络应用的编程开发过程，例如：基于TCP和UDP的socket服务开发。
+
 java.io
 java.nio
 
@@ -97,3 +104,10 @@ socket.connect()i
     windows文件的开头会有两个字节，也叫做Zero Width No-Break Space，如果是0xFEFF(大端BE)，0xFFFE(小端LE)
 
 8. BOM(Byte Order Mark)：字节序，文件头带0xFEFF(大端BE)或0xFFFE(小端LE)，就有BOM头
+
+### 5.流的方向
+InputStream 都是从外部输入到程序中。
+OutputStream从程序输出到外部。可以这样理解吗
+
+read 方法就是从外部数据源读取数据到程序中
+write 方法就是把程序中的数据写入到外部目标中
