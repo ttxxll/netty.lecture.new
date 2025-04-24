@@ -52,7 +52,7 @@ public class NioTest12 {
 
         while (true) {
             /**
-             * 阻塞方法：等待在selector中注册的channel至少有一个已经准备好IO操作了，返回准备好IO操作的channel数量
+             * 阻塞方法：等待在selector中注册的channel至少有一个已经准备好IO操作了，返回准备好IO操作的事件数量
              *
              * 分析一个客户端异常关闭的情况：
              *  比如我用终端窗口结合telnet命令进行连接测试。当我直接叉掉窗口时，此时意味着客户端发生异常关闭。

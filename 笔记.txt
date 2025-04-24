@@ -89,6 +89,8 @@ socket.connect()i
 1. selector上可以注册多个channel
 2. 每个channel注册到selector上时，可以指定关注的事件，比如accept，read，write，connect
 3. 当发生特定的事件时，意味着selector中注册的channel可以进行IO时，获取到这些channel和其对应发生的事件，进而根据事件类型做处理。比如监听到连接，可读可写等。
+   它的select()方法是阻塞的，直到在selector中注册的channel有已经准备好的IO事件，阻塞结束，返回准备好的事件key数量
+   然后通过selectedKeys获取到事件对应的key的集合，然后我们再交给特定的handler处理
 
 ### 4.编码知识
 0. 文件在磁盘存储时都会有一个编码
@@ -111,3 +113,60 @@ OutputStream从程序输出到外部。可以这样理解吗
 
 read 方法就是从外部数据源读取数据到程序中
 write 方法就是把程序中的数据写入到外部目标中
+
+### 6.ChannelFuture
+java.util.concurrent.Future：
+    代表一个异步计算的结果
+    虽然提供了get()方法获取异步任务结果，但get()方法是阻塞的，如果不能掌握调用时机的话，还是会出现阻塞等待的情况
+io.netty.util.concurrent.Future：
+    提供了监听器，能更好的知道异步任务什么时候完成，无需等待异步任务执行完毕。
+    开发者可以更专注与后续的业务开发，和异步任务解耦，
+io.netty.channel.ChannelFuture：
+    代表着一个异步的I/O操作结果
+    所有的I/O操作在netty都是异步的，任何的I/O操作都会立即返回一个ChannelFuture，其中包含着这些异步操作的状态信息
+    异步任务完成后会调用listener的回调方法
+    这意味着Netty中的I/O操作有着很高的性能和资源利用率，尤其是你熟悉事件驱动编程的话。但是实现一个顺序的逻辑是比较棘手的，有门槛的
+
+### 7.不要在ChannelHandler中调用await()方法，可能造成死锁
+事件处理器方法内又调用了await()方法，事件处理器方法等待着await()方法结束
+await()在阻塞等待I/O事件结束
+出现死锁
+比如假设有一个连接关闭的回调方法closeHandle()方法
+在closeHandle()方法中调用了channel.close().await()，进行异步的channel关闭
+
+closeHandle()方法等待着await()
+await()等待着close事件
+closeHandle()方法因为await()阻塞而永远不会结束
+产生死锁
+
+应该用监听器，给future增加一个监听器，当异步关闭任务完成时，future会调用监听器中的回调方法
+
+确保不要在I/O线程中调用await()方法，防止死锁的发生
+
+### 8.Future的等待超时不等于连接超时
+因为等待超时了，但是连接可能还在建立，不一定连接超时，Future还未完成
+要手动指定连接超时时间，连接超时后就可以自动将future置为complete状态，只是非success
+
+
+### 9.Reactor杂记
+
+Scalable IO in Java ：
+https://gee.cs.oswego.edu/dl/cpjslides/nio.pdf
+https://blog.csdn.net/chuixue24/article/details/130605554
+
+ParentEventLoop相当于一个Reactor，是一个线程，循环不断接收accpet事件不处理，仅做分发
+比如分发给ChildEventLoop，ChildEventLoop根据不同的事件类型，来选择具体的handler做具体的处理
+所以ParentEventLoopGroup一般就1一个线程
+
+SelectKey：
+每次channel向selector中进行注册时，都会产生一个SelectKey，一个SelectKey可以理解成一次Channel的注册行为
+因为注册时channel会指定一个IO事件，selectKey会维护事件的状态信息，和channel的绑定关系
+
+
+### 10.演化
+传统的服务设计
+一个服务端启动一个ServerSocket不断循环accept()客户端连接，每次有客户端连接进来时，都会新启动一个线程/提交到线程池做后续的操作，
+比如读IO，编解码，计算，响应返回等。
+
+基于NIO的支持，提出Reactor模式
+其中Reactor来响应IO事件，并将IO分发给合适的Handler
