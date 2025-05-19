@@ -38,10 +38,12 @@ public class MyServer {
              * NioServerSocketChannel:是一个ServerSocketChannel的实现，并且是基于NIO Selector的来实现接收新的连接。
              * childHandler：用来服务与Channel的请求
              */
-            // childHandler针对workerGroup的handler：完成请求
-            // handler是针对bossGroup的handler：分发调度
+            // childHandler针对SocketChannel的handler：完成请求
+            // handler是针对ServerSocketChannel的handler：分发调度
             serverBootstrap.group(parentGroup, childGroup).channel(NioServerSocketChannel.class)
                     .handler(new LoggingHandler(LogLevel.INFO))
+                    // ChannelInitializer是一种特殊的InboundHandler，在Channel注册到EventLoop时，向ChannelPipeline中添加我们指定的业务Handler
+                    // Channel注册完成后，ChannelInitializer这个InboundHandler就会被移除掉
                     .childHandler(new MyServerInitializer());
             /**
              * bind：根据上面channel方法指定的class，channelFactory会创建一个NioServerSocketChannel实例，并将创建的ServerChannel绑定到端口上，准备接收客户端连接

@@ -40,6 +40,11 @@ public class Reactor implements Runnable{
 
     /**
      * NIO中的多路复用器，尤其是SelectableChannel对象的多路复用器
+     * 多路复用：在Java NIO中，多路复用指的是使用一个线程来管理多个Channel的I/O操作，实现是Selector，
+     *  通过使用一个线程同时监控多个Channel的I/O事件，如连接就绪，读就绪，写就绪等。避免每个连接都需要独立的线程来处理，进而造成系统资源的大量消耗
+     *  在Channel注册到Selector中并指定好感兴趣的事件类型后，Selector可以不断的轮询注册在其上的Channel，检查是否有通道的I/O事件已就绪
+     *  一旦就绪可以通过selectedKey()方法获取这些就绪的SelectionKey集合，进而获得SelectionKey绑定的Channel，进而进行I/O事件处理
+     *
      * 每次SelectableChannel注册到Selector中都会创建一个SelectKey对象，每个Selector都会维护着3中SelectKey的集合
      * 第一种：此选择器当前所有的SelectKey
      * 第二种：我们一般会先通过selector.select()这个阻塞方法，等待selector中注册的channel有就绪的IO事件。
