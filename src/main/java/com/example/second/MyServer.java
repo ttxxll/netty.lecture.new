@@ -51,11 +51,13 @@ public class MyServer {
              * 还会添加一个ServerBootstrapAcceptor，用于接收客户端连接
              * Future：代表一个异步计算的结果
              */
+            // sync()：必须等待bind()结束才能开始后续监听等步骤
             ChannelFuture channelFuture = serverBootstrap.bind(8899).sync();
             channelFuture.channel().closeFuture().sync();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
+            // 优雅关闭两个事件循环组:释放服务器资源
             parentGroup.shutdownGracefully();
             childGroup.shutdownGracefully();
         }

@@ -17,6 +17,7 @@ java.nio中拥有3个核心概念:
 
 除了数组之外，Buffer还提供了对于数据的结构化访问方式，并且可以追踪到系统的读写过程。
 Java中的8种原张数据类型都有各自对应的Buffer类型，如IntBuffer，LongBuffer，ByteBuffer及CharBuffer等等。
+DirectByteBuffer：本身是一个Java对象，其中维护这一个long类型的address属性，执行堆外的一块内存。该内存是用malloc()调用申请的，处于用户太。
 Channel指的是可以向其写入数据或是从中读取数据的对象，它类似于java.io中的Stream。
 所有数据的读写都是通过Buffer来进行的，永远不会出现直接向channel写入数据的情况，或是直接从channel读取数据的情况。
 与Stream不同的是，channel是双向的，channel打开后则可以进行读取或是写入，而一个流只可能是inputStream或是outputStream。
@@ -24,6 +25,14 @@ Channel指的是可以向其写入数据或是从中读取数据的对象，它�
 
 关于NI0 Buffer中的3个重要状态属性的含义:position，limit与capacity。
     0<=mark<= position<= limit <= capacity
+    mark：记录的某个 position，可以用reset()返回到这个位置，回将position重置位mark值
+    position：当前读写的位置
+    limit：能读写到的最大位置
+    capacity：buffer的容量
+flip()：读写切换时，要调用flip方法
+    将limit设为当前position
+    将position设为0
+clear()：limit设置为capacity，position置为0
 
 通过NIO读取文件涉及到3个步骤:
     1.从FileInputStream获取到fileChannel对象:
