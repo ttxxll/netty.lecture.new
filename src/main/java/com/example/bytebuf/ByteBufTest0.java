@@ -22,11 +22,43 @@ import io.netty.buffer.Unpooled;
 public class ByteBufTest0 {
     public static void main(String[] args) {
         ByteBuf buffer = Unpooled.buffer(10);
+        /**
+         * writeByte(i)：i整数虽然是4字节，但是writeByte只会写入低位的一个字节，高位的3个字节会被丢弃
+         */
         for (int i = 0; i < 10; i++) {
             buffer.writeByte(i);
         }
+
+        // 通过索引来访问ByteBuf不会改变读写索引
+//        for (int i = 0; i < buffer.capacity(); i++) {
+//            System.out.println(buffer.getByte(i));
+//        }
+
+        /**
+         * readByte()读取一个字节
+         * readByte()读取ByteBuf会改变读写索引
+         */
         for (int i = 0; i < buffer.capacity(); i++) {
-            System.out.println(buffer.getByte(i));
+            System.out.println(buffer.readByte());
         }
+        System.out.println("===================================");
+
+        buffer.clear();
+        /**
+         * 512 = 0b00000010_00000000
+         * 同理，writeByte(i)只会写入低位的一个字节，即
+         * 00000000
+         * 00000001
+         * 00000002
+         * 00000003
+         * ....
+         */
+        for (int i = 0; i < 10; i++) {
+            buffer.writeByte(512+i);
+        }
+        for (int i = 0; i < buffer.capacity(); i++) {
+            System.out.println(buffer.readByte());
+        }
+
     }
 }
