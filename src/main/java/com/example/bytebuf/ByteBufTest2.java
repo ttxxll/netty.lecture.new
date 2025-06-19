@@ -27,6 +27,12 @@ import java.util.Iterator;
  *   1. ByteBuf采用了读写索引分离的策略，既有读指针也有写指针，读写操作时都会更新维护读写指针
  *   2. ByteBuf读写切换时不需要再调用flip()方法切换
  *   3. ByteBuf创建时预留了一定的空间，避免频繁的扩容。并且容量满了时，再进行写操作，ByteBuf会自动扩容。
+ *      write方法在执行时，会先判断是否有足够的空间，如果不够，会自动扩容。
+ *      因为ByteBuffer的数组引用是final修饰的，所以无法扩容。需要在存储之前确定好大致的容量
+ *   4. ByteBuf实现了ReferenceCounted接口，可以进行引用计数的管理。提升了对象创建和销毁的性能，提高了内存的复用
+ *      有池化和非池化的两种方式：池化方式下，当引用计数器为0时，对象重新回到对象池中；非池化方式下，当引用计数器为0时，对象会被回收
+ *   5. duplicate()/copy()获取到的衍生ByteBuf，会共享原ByteBuf的引用计数器，使用衍生ByteBuf时需要retain+1。
+ *      所以当衍生ByteBuf被释放时，原ByteBuf的引用计数器会减1
  * @date 2025-05-21 18:30
  */
 public class ByteBufTest2 {

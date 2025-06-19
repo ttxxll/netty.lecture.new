@@ -179,3 +179,13 @@ SelectKey：
 
 基于NIO的支持，提出Reactor模式
 其中Reactor来响应IO事件，并将IO分发给合适的Handler
+
+
+### 11.更新器
+AtomicIntegerFieldUpdater
+1. 更新器更新的必须是int类型变量，不能是包装类型
+2. 更新器更新的必须是volatile类型变量，确保线程之间共享变量的立即可见性
+3. 变量不能是static，必须是实例变量，因为Unsafe.objectFieldOffset()方法是实例方法，不支持static变量，CAS操作本质上是通过实例的偏移量来直接进行赋值
+4. 更新器只能修改它可见范围内的变量，因为是通过反射来获取变量的，变量不可见无法反射获取
+
+如果更新的变量是包装类型，可以使用AtomicReferenceFieldUpdater来进行更新
