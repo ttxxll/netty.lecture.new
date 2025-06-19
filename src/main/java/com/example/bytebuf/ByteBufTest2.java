@@ -31,13 +31,13 @@ import java.util.Iterator;
  *      因为ByteBuffer的数组引用是final修饰的，所以无法扩容。需要在存储之前确定好大致的容量
  *   4. ByteBuf实现了ReferenceCounted接口，可以进行引用计数的管理。提升了对象创建和销毁的性能，提高了内存的复用
  *      有池化和非池化的两种方式：池化方式下，当引用计数器为0时，对象重新回到对象池中；非池化方式下，当引用计数器为0时，对象会被回收
- *   5. duplicate()/copy()获取到的衍生ByteBuf，会共享原ByteBuf的引用计数器，使用衍生ByteBuf时需要retain+1。
+ *   5. duplicate()/copy()获取到的衍生ByteBuf，会共享原ByteBuf的引用计数器，使用衍生ByteBuf时需要retain +1。
  *      所以当衍生ByteBuf被释放时，原ByteBuf的引用计数器会减1
  * @date 2025-05-21 18:30
  */
 public class ByteBufTest2 {
     public static void main(String[] args) {
-        // 符合ByteBuf
+        // 复合ByteBuf
         CompositeByteBuf bufs = Unpooled.compositeBuffer();
         ByteBuf headBuf = Unpooled.buffer(10);
         ByteBuf directBuf = Unpooled.directBuffer(8);
