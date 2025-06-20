@@ -11,7 +11,10 @@ public class MyServerInitializer extends ChannelInitializer<SocketChannel> {
         // 将从客户端读取的字节数据转换为Long类型：入站处理器，解码器
         pipeline.addLast(new MyLongToByteEncoder());
         // 返回时将Long类型数据转换为字节数据：出站处理器，编码器
-        pipeline.addLast(new MyByteToLongDecoder());
+        //pipeline.addLast(new MyByteToLongDecoder());
+        pipeline.addLast(new MyByteToLongDecoder2());
+        // 将Long类型数据转换为字符串：入站处理器，解码器
+        pipeline.addLast(new MyLongToStringDecoder());
         pipeline.addLast(new MyServerHandler());
     }
 }

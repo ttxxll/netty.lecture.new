@@ -1,9 +1,7 @@
 package com.example.handler;
 
-import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
-import io.netty.util.CharsetUtil;
 
 import java.time.LocalDateTime;
 
@@ -28,17 +26,13 @@ public class MyClientHandler extends SimpleChannelInboundHandler<Long> {
      */
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-//        ctx.writeAndFlush(1234567890L);
-//        ctx.writeAndFlush(1L);
-//        ctx.writeAndFlush(2L);
-//        ctx.writeAndFlush(3L);
-//        ctx.writeAndFlush(4L);
+        ctx.writeAndFlush(1234567890L);
 
         // 发送字符串肯定是发不出去的，因为客户端只添加了LongDecoder
         // ctx.writeAndFlush("hello world");
 
         // 通过ByteBuf绕过类型检查
-        ctx.writeAndFlush(Unpooled.copiedBuffer("helloworldhelloworld", CharsetUtil.UTF_8));
+        // ctx.writeAndFlush(Unpooled.copiedBuffer("helloworldhelloworld", CharsetUtil.UTF_8));
     }
 
     @Override
